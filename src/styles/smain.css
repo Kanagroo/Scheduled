@@ -1,0 +1,31 @@
+#page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+#content-container {
+    width:400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#content-wrapper {
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    height: 100%;
+    width: 100%;
+}
+
+#body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:.5rem;
+}
+
+.step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

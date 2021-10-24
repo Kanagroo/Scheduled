@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --active-default: #E91C63;
+    --active-darker: #b6134c;
+
+    --bg-dark: #121212;
+    --bg-light: #fafafa;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-light);
+
+    font-family: 'Roboto';
+
+    overflow-x: hidden;
+}

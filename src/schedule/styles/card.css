@@ -1,0 +1,31 @@
+.card {
+    display: flex;
+    justify-content: center;
+    height: 10rem;
+    width: 10rem;
+
+    background-color: var(--active-default);
+    border-radius: .25rem;
+    cursor: default;
+
+    box-shadow: 0 .25rem 0 0 var(--active-darker);
+    
+}
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:1.5rem;
+    overflow-x: hidden;
+}
+.card-n,
+.card-title {
+    font-size: 1.80rem;
+    font-weight: 400;
+}
+.card-title {
+    color: white;
+}
+.card-n {
+    color: var(--active-darker);
+}

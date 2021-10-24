@@ -1,0 +1,44 @@
+#header {
+    display: flex;
+    flex-direction: column;
+}
+
+#header-wrapper {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    height:100%;
+}
+
+#header-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: var(--active-default);
+    border-radius:  0 0 .5rem .5rem;
+    box-shadow: 0 .5rem 0 0 var(--active-darker);
+
+    cursor: default;
+    overflow: hidden;
+    z-index: 10;
+}
+#header-sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-text {
+    font-weight: bolder;
+}
+#header-title {
+    font-size: 2.5rem;
+    color: white;
+}
+#header-sub {
+    font-size: 2.3rem;
+    color: var(--active-default);
+
+    text-shadow:1px 1px 0 var(--active-darker),
+                2px 2px 0 var(--active-darker)
+}
