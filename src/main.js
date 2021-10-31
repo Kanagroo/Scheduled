@@ -2,15 +2,25 @@ const content_body = document.querySelector('#body');
 const header = document.querySelector('#header-sub');
 const continue_button = document.querySelector('#footer-button-continue');
 const steps = [
-    {'header': 'Set a Start and an End',
-     'location': 'scenes/startend',
-     'dependencies': [{'tag': 'link', 'properties':{'rel': 'stylesheet', 'href': 'styles/calendar.css'}},
-                      {'tag': 'script', 'properties':{'src': 'scripts/calendar.js', 'type':'text/javascript'}}
+    {
+        'header': 'Set a Start and an End',
+        'location': 'scenes/startend',
+        'dependencies': [
+            {'tag': 'link', 'properties':{'rel': 'stylesheet', 'href': 'styles/calendar.css'}},
+            {'tag': 'script', 'properties':{'src': 'scripts/calendar.js', 'type':'text/javascript'}}
                      ]
+    },
+    {
+        'header': 'Plan your cycle',
+        'location': 'scenes/cycle',
+        'dependencies': [
+            {'tag': 'link', 'properties':{'rel': 'stylesheet', 'href': 'styles/cycle.css'}},
+            {'tag': 'script', 'properties':{'src': 'scripts/cycle.js', 'type':'text/javascript'}}
+        ]
     }
 ];
 
-let step = 0;
+let step = 1;
 
 async function animation(step_element, isEnter) {
     if (!step_element)
@@ -105,8 +115,8 @@ async function unload_step() {
 
 
 load_step(steps[step]);
-setTimeout(unload_step, 2000);
+// setTimeout(unload_step, 2000);
 
-new Promise((r) => setTimeout(r, 4000)).then(() => {
-    load_step(steps[step])
-});
+// new Promise((r) => setTimeout(r, 4000)).then(() => {
+//     load_step(steps[step])
+// });

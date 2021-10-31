@@ -1,0 +1,51 @@
+<div id="cycle-container">
+    <div id="cycle-wrapper">
+        <div id="cycle-header">
+            <span id="cycle-header-tag">Cycle length</span>
+            <div id="cycle-header-selector">
+                <span id="cycle-header-selector-value">1</span>
+                <div id="cycle-header-selector-arrows-container">
+                    <div id="cycle-header-selector-arrow-positive" class="cycle-arrow arrow arrow-up"></div>
+                    <div id="cycle-header-selector-arrow-negative" class="cycle-arrow arrow arrow-down"></div>
+                </div>
+            </div>
+        </div>
+        <div id="cycle-body">
+            <div id="cycle-body-header">
+                <span id="cycle-body-header-tag">Jour 1</span>
+                <div id="cycle-body-header-selector">
+                    <div id="cycle-body-header-selector-arrow-negative" class="cycle-arrow arrow arrow-left"></div>
+                    <div id="cycle-body-header-selector-arrow-positive" class="cycle-arrow arrow arrow-right"></div>
+                </div>
+            </div>
+            <div id="cycle-body-content-wrapper">
+                <div id="cycle-body-content">
+                
+
+                    <div id="cycle-content-add"><span>+</span></div>
+
+                    
+                    <template id="cycle-content-template">
+                        <div class="cycle-content-object">
+                            <div class="cycle-content-time">
+                                <input type="time" value="" class="cycle-content-time-input"/>
+                            </div>
+                            <div class="cycle-content-name">
+                                <input type="text" value="" placeholder="..." class="cycle-content-name-input"/>
+                            </div>
+                        </div>
+                    </template>
+        
+                        
+                </div>
+                <div id="cycle-body-content-bins">
+                    <template id="cycle-content-bin-template">
+                        <div onclick="removePhase(this)" class="cycle-content-bin">
+                            <span>-</span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

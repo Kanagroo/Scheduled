@@ -6,6 +6,14 @@
 
     --bg-dark: #121212;
     --bg-light: #fafafa;
+
+    --light-grey: #f1f1f4;
+    --dark-grey: #919194;
+
+    --light-red: #ffb9b9;
+    --dark-red: #da8989;
+
+    --invalid: rgba(255, 0, 0, 0.5);
 }
 
 body {

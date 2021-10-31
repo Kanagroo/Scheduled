@@ -1,0 +1,206 @@
+#cycle-container {
+    height: 80%;
+    width: 90%;
+}
+#cycle-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+}
+.cycle-arrow {
+    border-color: var(--active-darker);
+}
+.cycle-arrow:hover {
+    border-color: var(--active-default);
+}
+
+
+#cycle-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+#cycle-header-tag {
+    color: var(--active-default);
+}
+#cycle-header-selector {
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+#cycle-header-selector-value {
+    color: var(--active-darker);  
+}
+#cycle-header-selector-arrows-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+#cycle-body {
+    display: flex;
+    flex-direction: column;
+}
+#cycle-body-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+#cycle-body-header-tag {
+    color: var(--active-default);
+}
+#cycle-body-header-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+#cycle-body-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+#cycle-body-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+#cycle-body-content-bins {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+}
+#cycle-content-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height:30px;
+    
+    background-color: var(--active-default);
+    border-radius: .5rem;
+
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 5px 0 0 var(--active-darker);
+    user-select:none;
+    -moz-user-select:none;
+    -webkit-touch-callout:none;
+    -ms-user-select:none;
+}
+#cycle-content-add:active {
+    box-shadow: 0 3px 0 0 var(--active-darker);
+    transform: translateY(2px);
+}
+.cycle-content-object {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height:50px;
+    gap:10px;
+}
+
+.cycle-content-invalid {
+    border-bottom: 5px solid var(--invalid);
+}
+
+.cycle-content-bin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    margin: 10px 0;
+    background-color: var(--light-grey);
+    border-radius: 3px;
+    cursor: pointer;
+    color: var(--dark-grey);
+    font-weight: bolder;
+    transition: 175ms color ease-in-out, 175ms background-color ease-in-out;
+}
+.cycle-content-bin:hover {
+    background-color: var(--light-red);
+    color: var(--dark-red);
+}
+
+.cycle-content-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cycle-content-name-input {
+    height: 30px;
+    width: 100px;
+    border-radius: 3px;
+    border: 2px solid var(--light-grey);
+    outline: none;
+
+    text-align: center;
+    color: var(--active-default);
+    font-size: 1.3rem;
+}
+
+.cycle-content-time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cycle-content-time-input {
+    color: var(--active-default);
+    font-family: 'roboto', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    width:155px;
+    height: 50px;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.cycle-content-time-input::-webkit-datetime-edit-fields-wrapper {
+    display: flex;
+  }
+.cycle-content-time-input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+.cycle-content-time-input::-webkit-datetime-edit-text {
+    padding: 6px
+}
+.cycle-content-time-input::-webkit-datetime-edit-hour-field,
+.cycle-content-time-input::-webkit-datetime-edit-minute-field {
+    background-color: var(--light-grey);
+    padding: 6px;
+    border-radius: 3px;
+}
+.cycle-content-time-input::-webkit-datetime-edit-ampm-field {
+    background-color: var(--active-default);
+    padding: 5px;
+    border-radius: 3px;
+    color: #fff;
+}
+.cycle-content-time-input::-webkit-inner-spin-button {
+    display: none;
+}
+.cycle-content-time-input::-webkit-clear-button {
+    display: none;
+}
+
+
