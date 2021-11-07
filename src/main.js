@@ -4,7 +4,7 @@ const continue_button = document.querySelector('#footer-button-continue');
 const steps = [
     {
         'header': 'Set a Start and an End',
-        'location': 'scenes/startend',
+        'location': 'scenes/calendar',
         'dependencies': [
             {'tag': 'link', 'properties':{'rel': 'stylesheet', 'href': 'styles/calendar.css'}},
             {'tag': 'script', 'properties':{'src': 'scripts/calendar.js', 'type':'text/javascript'}}
@@ -20,7 +20,7 @@ const steps = [
     }
 ];
 
-let step = 1;
+let step = 0;
 
 async function animation(step_element, isEnter) {
     if (!step_element)
@@ -91,6 +91,10 @@ async function unload_step() {
     
 }
 
+function nextStepHandler(e) {
+
+}
+
 // async function step_animation(type) {
 //     const container = document.querySelector('.step');
 //     if (!container)
@@ -115,6 +119,12 @@ async function unload_step() {
 
 
 load_step(steps[step]);
+
+continue_button.addEventListener(
+    'click', nextStepHandler
+);
+
+
 // setTimeout(unload_step, 2000);
 
 // new Promise((r) => setTimeout(r, 4000)).then(() => {

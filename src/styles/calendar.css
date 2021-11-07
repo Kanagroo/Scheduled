@@ -86,11 +86,17 @@
     background-color: white;
     cursor: pointer;
 }
+.calendar-day-container.selected {
+    border-radius: 5px;
+    background-color: var(--active-default);
+    color: white;
+    box-shadow: 0 0 5px 0 var(--active-darker);
+    z-index:10;
+}
 .calendar-day-container:hover {
     border-radius: 5px;
     background-color: var(--active-default);
     color: white;
-    
 }
 .calendar-day-blank {
     width: 56px;
