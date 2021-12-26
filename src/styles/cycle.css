@@ -95,7 +95,7 @@
     background-color: var(--active-default);
     border-radius: .5rem;
 
-    color: white;
+    color: var(--text-lod);
     font-weight: bold;
     cursor: pointer;
 
@@ -149,8 +149,9 @@
     height: 30px;
     width: 100px;
     border-radius: 3px;
-    border: 2px solid var(--light-grey);
+    border: 2px solid var(--grey);
     outline: none;
+    background-color: var(--light-grey);
 
     text-align: center;
     color: var(--active-default);
@@ -194,7 +195,7 @@
     background-color: var(--active-default);
     padding: 5px;
     border-radius: 3px;
-    color: #fff;
+    color: var(--text-lod);
 }
 .cycle-content-time-input::-webkit-inner-spin-button {
     display: none;

@@ -1,14 +1,14 @@
 .card {
     display: flex;
     justify-content: center;
-    height: 10rem;
-    width: 10rem;
+    height: 140px;
+    width: 160px;
 
-    background-color: var(--active-default);
+    background-color: var(--grey);
     border-radius: .25rem;
     cursor: default;
 
-    box-shadow: 0 .25rem 0 0 var(--active-darker);
+    box-shadow: 0 .25rem 0 0 var(--dark-grey);
     
 }
 .card-wrapper {
@@ -24,8 +24,19 @@
     font-weight: 400;
 }
 .card-title {
-    color: white;
+    color: var(--dark-grey);
 }
 .card-n {
+    color: var(--dark-grey);
+}
+
+.card.active {
+    background-color: var(--active-default);
+    box-shadow: 0 .25rem 0 0 var(--active-darker);
+}
+.card.active .card-n {
     color: var(--active-darker);
+}
+.card.active .card-title {
+    color: var(--text-lod);
 }

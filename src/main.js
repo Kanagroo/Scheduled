@@ -1,3 +1,5 @@
+import { validate_startend, validate_breaks, validate_cycle } from './validators.js'
+
 const content_body = document.querySelector('#body');
 const header = document.querySelector('#header-sub');
 const continue_button = document.querySelector('#footer-button-continue');
@@ -5,6 +7,18 @@ const steps = [
     {
         'header': 'Set a Start and an End',
         'location': 'scenes/calendar',
+        'validator': validate_startend,
+        'data-entry': 'sded',
+        'dependencies': [
+            {'tag': 'link', 'properties':{'rel': 'stylesheet', 'href': 'styles/calendar.css'}},
+            {'tag': 'script', 'properties':{'src': 'scripts/calendar.js', 'type':'text/javascript'}}
+                     ]
+    },
+    {
+        'header': 'Set your off-days',
+        'location': 'scenes/calendar',
+        'validator': validate_breaks,
+        'data-entry': 'breaks',
         'dependencies': [
             {'tag': 'link', 'properties':{'rel': 'stylesheet', 'href': 'styles/calendar.css'}},
             {'tag': 'script', 'properties':{'src': 'scripts/calendar.js', 'type':'text/javascript'}}
@@ -13,6 +27,8 @@ const steps = [
     {
         'header': 'Plan your cycle',
         'location': 'scenes/cycle',
+        'validator': validate_cycle,
+        'data-entry': 'cycle',
         'dependencies': [
             {'tag': 'link', 'properties':{'rel': 'stylesheet', 'href': 'styles/cycle.css'}},
             {'tag': 'script', 'properties':{'src': 'scripts/cycle.js', 'type':'text/javascript'}}
@@ -20,7 +36,14 @@ const steps = [
     }
 ];
 
-let step = 0;
+detect_colormode();
+
+let step = 0
+if (sessionStorage.getItem('step'))
+    step = parseInt(sessionStorage.getItem('step'));
+else
+    sessionStorage.setItem('step', step)
+
 
 async function animation(step_element, isEnter) {
     if (!step_element)
@@ -48,6 +71,20 @@ async function animation(step_element, isEnter) {
     await new Promise((r) => setTimeout(r, animation_time));
 
     step_element.style = null;
+}
+
+function detect_colormode() {
+    let theme = 'light'
+    let saved_theme = localStorage.getItem('theme')
+    if (saved_theme) {
+        theme = saved_theme;
+        return;
+    }
+    if (window.matchMedia)
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+            theme = 'dark'
+    
+    document.documentElement.setAttribute('data-theme', 'dark');
 }
 
 async function load_step(step) {
@@ -81,6 +118,7 @@ async function load_step(step) {
     content_body.appendChild(container);
 
     await animation(container, true);
+    return container;
 }
 
 async function unload_step() {
@@ -91,42 +129,69 @@ async function unload_step() {
     
 }
 
-function nextStepHandler(e) {
+function submitHandler() {
+    let data = {};
+    for (let i=0;i<steps.length;i++)
+        data[steps[i]['data-entry']] = JSON.parse(sessionStorage.getItem(`step${i}`)).data
 
+    let start_date = new Date(data.sded.selected[0]);
+    let end_date = new Date(data.sded.selected[1]);
+    let breaks = data.breaks.selected.map(e => new Date(e));
+    let cycle = data.cycle
+
+    let encoded_data = encode_data(start_date, end_date, breaks, cycle);
+    console.log(encodeURIComponent(btoa(encoded_data)));
 }
 
-// async function step_animation(type) {
-//     const container = document.querySelector('.step');
-//     if (!container)
-//         return;
-//     let animation_steps = 100;
-//     let animation_speed = 2;
-//     const step_animation = async (completion) => {
-//         if (type==='exit')
-//         container.style.transform = `translateX(calc(-${completion / 2 * (100/animation_steps)}vw - ${container.offsetWidth/(100/(completion/2 * (100/animation_steps)))}px ))`;
-//         if (type==='enter')
-//         container.style.transform = `translateX(calc(-${completion / 2 * (100/animation_steps)}vw - ${container.offsetWidth/(100/(completion/2 * (100/animation_steps)))}px + 50vw + ${container.offsetWidth/2}px))`;
-//         await new Promise(r => setTimeout(r, animation_speed));
+async function nextStepHandler(e) {
+    if (!steps[step].validator(JSON.parse(sessionStorage.getItem(`step${step}`)).data))
+        return;
+    if (step >= steps.length - 1) {
+        submitHandler();
+        return;
+    }
+    step++;
+    sessionStorage.setItem('step', step)
+    
 
-//         animation_speed = Math.pow(animation_speed, 1.02);
-//     }
-
-//     for (let i=1; i<=animation_steps; i++)
-//         await step_animation(i);
-// }
+    await unload_step()
+    load_step(steps[step])
+}
 
 
+function encode_data(start_date, end_date, breaks, cycle) {
+    let encode_ascii = n => Math.floor(n/(122-33)) > 0 ? String.fromCharCode(Math.floor(n/(122-33)) + 33) + '~' + String.fromCharCode(n - Math.floor(n/(122-33))*89 + 33) : String.fromCharCode(n - Math.floor(n/(122-33))*89 + 33);
+    let encode_date = d => `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}.`;
+    let encode_break = (b, l) => `${encode_ascii((b - l)/86400000)}`;
+    
 
+    let result = '';
+    let start_date_string = encode_date(start_date);
+    let end_date_string = encode_date(end_date);
+
+    result += start_date_string + end_date_string;
+
+    result += encode_break(breaks[0], start_date)
+    for (let i=1;i<breaks.length;i++) {
+        result += encode_break(breaks[i], breaks[i-1])
+    }
+    result += '.'
+
+    // Science(02:00)Info(03:45)-Anglais(02:00)Francais(03:45
+    for (let i=0;i<cycle.days.length;i++) {
+        for (let j=0;j<cycle.days[i].length;j++) {
+            result += `${cycle.days[i][j].name}(${cycle.days[i][j].time})`
+        }
+        result = result.slice(0, result.length-1)
+        result += '-'
+    }
+    result = result.slice(0, result.length-1);
+
+    return result;
+}
 
 load_step(steps[step]);
 
 continue_button.addEventListener(
     'click', nextStepHandler
 );
-
-
-// setTimeout(unload_step, 2000);
-
-// new Promise((r) => setTimeout(r, 4000)).then(() => {
-//     load_step(steps[step])
-// });

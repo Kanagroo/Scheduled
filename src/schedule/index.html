@@ -16,45 +16,31 @@
             <div id="content-wrapper">
                 <div id="header">
                     <div id="header-wrapper">
-                        <div><span id="header-date" class="header-text">October, 13</span></div>
-                        <div><span id="header-week" class="header-text">Wednesday</span></div>
-                        <div><span id="header-cycle" class="header-text">Day 2</span></div>
+                        <div><span id="header-date" class="header-text"></span></div>
+                        <div><span id="header-week" class="header-text"></span></div>
+                        <div><span id="header-cycle" class="header-text"></span></div>
                     </div>
                 </div>
                 <div id="body">
                     <div id="body-wrapper">
-                        <div class="arrow-wrapper"></div>
-                        <div id="cards-wrapper">
-                            <div id="card-1" class="card">
-                                <div class="card-wrapper">
-                                    <div><span class="card-title">Math</span></div>
-                                    <div><span class="card-n">I</span></div>
-                                </div>
-                            </div>
-                            <div id="card-2" class="card">
-                                <div class="card-wrapper">
-                                    <div><span class="card-title">Info</span></div>
-                                    <div><span class="card-n">II</span></div>
-                                </div>
-                            </div>
-                            <div id="card-3" class="card">
-                                <div class="card-wrapper">
-                                    <div><span class="card-title">Science</span></div>
-                                    <div><span class="card-n">III</span></div>
-                                </div>
-                            </div>
-                            <div id="card-4" class="card">
-                                <div class="card-wrapper">
-                                    <div><span class="card-title">Musique</span></div>
-                                    <div><span class="card-n">IV</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="arrow-wrapper"></div>
+                        <div class="arrow-wrapper"><div id="arrow-left" class="arrow arrow-left"></div></div>
+                        <div id="cards-wrapper"></div>
+                        <div class="arrow-wrapper"><div id="arrow-right" class="arrow arrow-right"></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <template id="card-template">
+        <div class="card">
+            <div class="card-wrapper">
+                <div><span class="card-title"></span></div>
+                <div><span class="card-n"></span></div>
+            </div>
+        </div>
+    </template>
+
+    <script src="main.js" type="text/javascript"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
         </div>
         <div id="cycle-body">
             <div id="cycle-body-header">
-                <span id="cycle-body-header-tag">Jour 1</span>
+                <span id="cycle-body-header-tag">Day 1</span>
                 <div id="cycle-body-header-selector">
                     <div id="cycle-body-header-selector-arrow-negative" class="cycle-arrow arrow arrow-left"></div>
                     <div id="cycle-body-header-selector-arrow-positive" class="cycle-arrow arrow arrow-right"></div>
@@ -28,10 +28,10 @@
                     <template id="cycle-content-template">
                         <div class="cycle-content-object">
                             <div class="cycle-content-time">
-                                <input type="time" value="" class="cycle-content-time-input"/>
+                                <input onchange="phaseChangeHandler(this,'time')" type="time" value="" class="cycle-content-time-input"/>
                             </div>
                             <div class="cycle-content-name">
-                                <input type="text" value="" placeholder="..." class="cycle-content-name-input"/>
+                                <input onchange="phaseChangeHandler(this,'name')" type="text" value="" placeholder="..." class="cycle-content-name-input"/>
                             </div>
                         </div>
                     </template>

@@ -37,6 +37,8 @@ function dayTileClickHandler(e) {
             )
         );
     }
+
+    save_data()
 }
 
 function fill_calendar(month_date) {
@@ -100,6 +102,18 @@ function change_month(delta, date) {
     fill_calendar(new Date(date.getTime()));
 }
 
+function save_data() {
+    sessionStorage.setItem('step' + sessionStorage.getItem('step'), JSON.stringify({'type':'calendar','data':calendar_data}))
+}
+
+var saved_data = sessionStorage.getItem('step' + sessionStorage.getItem('step'))
+
+if (saved_data != null) {
+    calendar_data = JSON.parse(saved_data).data;
+    calendar_data.selected.forEach((j_date, i, a) => a[i] = new Date(j_date))
+} else {
+    save_data();
+}
 
 var month_date = new Date();
 month_date.setDate(1);

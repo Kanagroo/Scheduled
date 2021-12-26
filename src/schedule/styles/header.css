@@ -26,5 +26,5 @@
 .header-text {
     font-size: 3rem;
     font-weight: bolder;
-    color: white;
+    color: var(--text-lod);
 }

@@ -3,7 +3,7 @@
     flex-direction: column;
     width:100%;
     padding-bottom: 10px;
-    background-color: white;
+    background-color: var(--lighter-grey);
     border-radius: 1rem;
     border: .25rem solid var(--active-default);
     box-shadow: 0 .2rem 0 0 var(--active-darker);
@@ -19,7 +19,7 @@
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
     background-color: var(--active-default);
-    color: white;
+    color: var(--text-lod);
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -28,7 +28,7 @@
     flex-direction: column;
 }
 #calendar-header-year {
-    color: var(--active-darker)
+    color: var(--active-darker);
 }
 .calendar-arrow {
     display: flex;
@@ -40,7 +40,7 @@
     cursor: pointer;
 }
 .calendar-arrow:hover .calendar-arrow-inner{
-    background-color: white;
+    background-color: var(--text-lod);
 }
 
 .calendar-arrow-inner {
@@ -77,29 +77,31 @@
 
     width: 56px;
     height:56px;
-    background-color: var(--bg-light);
+    background-color: var(--lighter-grey);
+    color: var(--text-dol);
 }
 .calendar-day-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--lighter-grey);
     cursor: pointer;
+    color: var(--text-dol);
 }
 .calendar-day-container.selected {
     border-radius: 5px;
     background-color: var(--active-default);
-    color: white;
+    color: var(--text-lod);
     box-shadow: 0 0 5px 0 var(--active-darker);
     z-index:10;
 }
 .calendar-day-container:hover {
     border-radius: 5px;
     background-color: var(--active-default);
-    color: white;
+    color: var(--text-lod);
 }
 .calendar-day-blank {
     width: 56px;
     height:56px;
-    background-color: var(--bg-light);
+    background-color: var(--light-grey);
 }
