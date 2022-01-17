@@ -13,7 +13,7 @@
     transition: 175ms height ease-in-out;
 }
 #header.extended {
-    height: 250%;
+    height: 242px;
 }
 
 #header-wrapper {
@@ -27,4 +27,33 @@
     font-size: 3rem;
     font-weight: bolder;
     color: var(--text-lod);
+}
+
+@media (max-height: 825px) {
+    #header-wrapper {
+        margin:.2rem;
+    }
+    #header.extended {
+        height: 210px;
+    }
+    .header-text {
+        font-size: 2.8rem;
+    }
+}
+@media (max-height: 610px) {
+    #header-wrapper {
+        margin:0;
+    }
+    .header-text {
+        font-size: 2.5rem;
+    }
+    #header.extended {
+        height: 195px;
+    }
+}
+
+@media (max-width: 335px) {
+    .header-text {
+        font-size: 2.6rem;
+    }
 }

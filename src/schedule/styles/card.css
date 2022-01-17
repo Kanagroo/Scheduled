@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin:1.5rem;
+    margin: 10%;
     overflow-x: hidden;
 }
 .card-n,
@@ -39,4 +40,35 @@
 }
 .card.active .card-title {
     color: var(--text-lod);
+}
+
+@media (max-width: 435px) {
+    .card {
+        height: 110px;
+        width: 130px;
+    }
+    .card-n,
+    .card-title {
+        font-size: 1.6rem;
+    }
+}
+@media (max-height: 950px) and (min-width:436px) {
+    .card {
+        height: 120px;
+        width: 140px;
+    }
+    .card-n,
+    .card-title {
+        font-size: 1.5rem;
+    }
+}
+@media (max-height: 770px) {
+    .card {
+        height: 90px;
+        width: 125px;
+    }
+    .card-n,
+    .card-title {
+        font-size: 1.5rem;
+    }
 }

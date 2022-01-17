@@ -1,3 +1,13 @@
+@keyframes close {
+    from {
+        opacity: 1;
+        filter: blur(0);
+    }
+    to {
+        opacity: 0;
+        filter: blur(10px);
+    }
+}
 #page-wrapper {
     display: flex;
     min-height: 100vh;
@@ -15,6 +25,13 @@
     grid-template-rows: 15% 70% 15%;
     height: 100%;
     width: 100%;
+}
+#content-wrapper.closed {
+    opacity: 0;
+    pointer-events: none;
+
+    animation-name: close;
+    animation-duration: 4s;
 }
 
 #body {
@@ -57,4 +74,71 @@
 .arrow-down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 30px;
+    width: fit-content;
+    cursor: pointer;
+    color: var(--text-lod);
+    font-weight: bold;
+    background-color: var(--active-default);
+    border-radius: .5rem;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+.tooltip .tooltiptext {
+    width: 140px;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+
+    font-weight: normal;
+    font-size: 0.9rem;
+    background-color: var(--success);
+    color: #fff;
+    text-align: center;
+
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0.7) translateY(50%);
+
+
+    pointer-events: none;
+
+    transition-property: opacity, transform;
+    transition-duration: 0.3s;
+    transition-delay: 1s;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--success) transparent transparent transparent;
+}
+
+.tooltip:active .tooltiptext {
+    transition-delay: -0.5s;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+@media (max-width: 435px){
+    #content-container {
+        width:370px;
+    }
 }

@@ -52,10 +52,12 @@ function fill_calendar(month_date) {
 
     node.classList.add("calendar-day-container");
     blank_node.classList.add("calendar-day-blank");
+    /*
     node.style.width        = container.offsetWidth/7 + 'px';
     node.style.height       = container.offsetWidth/7 + 'px';
     blank_node.style.width  = container.offsetWidth/7 + 'px';
     blank_node.style.height = container.offsetWidth/7 + 'px';
+    */
     
     sub_node.appendChild(txt_node);
     node.appendChild(sub_node);

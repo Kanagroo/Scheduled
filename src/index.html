@@ -8,11 +8,26 @@
     <link rel="stylesheet" href="./styles/smain.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/popup.css">
     <title>Scheduled - Create an agenda</title>
 </head>
 <body>
     <div id="page-wrapper">
         <div id="content-container">
+            <div id="popup-container">
+                <div id="popup">
+                    <div id="popup-wrapper">
+                        <div id="popup-header"><span>You're good to go!</span></div>
+                        <div id="popup-body">
+                            <span>A personnalized link has been generated</span>
+                            <div id="popup-buttons-container">
+                                <div class="button tooltip" id="popup-button-copy"><span>Copy</span><span class="tooltiptext">Copied to Clipboard</span></div>
+                                <div class="button" id="popup-button-open"><span>Open</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="content-wrapper">
                 <div id="header">
                     <div id="header-wrapper">
@@ -23,7 +38,7 @@
                 <div id="body">
                 </div>
                 <div id="footer">
-                    <div id="footer-button-continue">
+                    <div id="footer-button-continue" class="button">
                         <span>Next</span>
                     </div>
                 </div>

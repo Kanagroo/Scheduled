@@ -69,18 +69,21 @@
     flex-direction: row;
     flex-wrap: wrap;
     overflow: hidden;
+    width:100%;
 }
 .calendar-weekday-container {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 56px;
+    width: calc(100% / 7);
     height:56px;
     background-color: var(--lighter-grey);
     color: var(--text-dol);
 }
 .calendar-day-container {
+    width: calc(100% / 7);
+    height: 56px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,6 +91,7 @@
     cursor: pointer;
     color: var(--text-dol);
 }
+
 .calendar-day-container.selected {
     border-radius: 5px;
     background-color: var(--active-default);
@@ -101,7 +105,7 @@
     color: var(--text-lod);
 }
 .calendar-day-blank {
-    width: 56px;
-    height:56px;
+    width: calc(100% / 7);
+    height: 56px;
     background-color: var(--light-grey);
 }

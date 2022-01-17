@@ -20,6 +20,8 @@
     --selection: #fd3e7d60;
     --selection: #3838381e;
     --invalid: rgba(255, 0, 0, 0.5);
+
+    --success: rgb(108, 194, 127);
 }
 [data-theme="dark"] {
     --active-default: #7a46aa;
