@@ -5,6 +5,7 @@ const card_template = document.getElementById('card-template');
 const arrow_left = document.getElementById('arrow-left');
 const arrow_right = document.getElementById('arrow-right');
 const icon_meta = document.getElementById('iconmeta');
+const apple_icon_meta = document.getElementById('appleiconmeta');
 
 function romanize(num) {
     var lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,
@@ -30,6 +31,7 @@ function detect_colormode() {
     
     document.documentElement.setAttribute('data-theme', theme);
     icon_meta.href = `../assets/icon_${theme}.png`;
+    apple_icon_meta.href = `../assets/icon_${theme}.png`;
 }
 
 function decode_data(data) {
