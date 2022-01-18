@@ -7,6 +7,7 @@ const popup_copy_button = document.querySelector('#popup-button-copy');
 const popup_open_button = document.querySelector('#popup-button-open');
 const header = document.querySelector('#header-sub');
 const continue_button = document.querySelector('#footer-button-continue');
+const icon_meta = document.getElementById('iconmeta');
 const animation_time = 1000;
 
 
@@ -26,6 +27,7 @@ function detect_colormode() {
     
     /* Set dark mode in css */
     document.documentElement.setAttribute('data-theme', theme);
+    icon_meta.href = `./assets/icon_${theme}.png`;
 }
 
 class AnimationMode {
