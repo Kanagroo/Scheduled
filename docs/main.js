@@ -167,7 +167,7 @@ function sumbitHandler() {
     // URL and Base64 Encode
     encoded_data = encodeURIComponent(btoa(encoded_data));
     
-    let url = `${window.location.origin}/schedule/?d=${encoded_data}`;
+    let url = `${window.location.href}schedule/?d=${encoded_data}`;
     
     popup.className = 'show';
     content.className = 'closed';

@@ -18,17 +18,16 @@ function romanize(num) {
 }
 
 function detect_colormode() {
-    let theme = 'light'
+    let theme = 'light';
     let saved_theme = localStorage.getItem('theme')
-    if (saved_theme) {
+    if (saved_theme)
         theme = saved_theme;
-        return;
-    }
+
     if (window.matchMedia)
         if (window.matchMedia("(prefers-color-scheme: dark)").matches)
-            theme = 'dark'
+            theme = 'dark';
     
-    document.documentElement.setAttribute('data-theme', 'dark')
+    document.documentElement.setAttribute('data-theme', theme);
 }
 
 function decode_data(data) {
@@ -155,7 +154,6 @@ function updateCards(date, data) {
     if (cards_container.children.length > 0)
         Array.from(cards_container.children).forEach(e => e.remove());
 
-    console.log(find_cycle_day(data, current_date))
     /* Add cards */
     if (find_cycle_day(data, current_date) == -1)
         return;
@@ -201,7 +199,6 @@ try {
     console.log(error)
     window.location = '../'
 }
-console.log(data);
 
 var current_date = new Date()
 
