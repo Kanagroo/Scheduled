@@ -224,7 +224,7 @@ function encode_data(start_date, end_date, breaks, cycle) {
     // Encode date into string
     let encode_date = d => `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}.`;
     // Encode breaks into string of charaters
-    let encode_break = (b, l) => `${encode_ascii((b - l)/86400000)}`;
+    let encode_break = (b, l) => `${encode_ascii(Math.round((b - l)/86400000))}`;
     
 
     let result = '';

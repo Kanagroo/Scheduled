@@ -224,5 +224,3 @@ arrow_right.addEventListener('click', changeDay.bind(null, +1, current_date, dat
 
 /* UI Update Loop */
 setInterval(updateUI.bind(null, new Date(), current_date), 1000);
-
-// ?d=MjAyMS8xMi8xLjIwMjEvMTIvMzEuIyQuYSgwMjowMCliKDAzOjAwLWEoMDI6MDApYigwMzowMA%3D%3D
