@@ -160,8 +160,7 @@ function sumbitHandler() {
         data[steps[i].data_entry] = JSON.parse(sessionStorage.getItem(`step${i}`)).data;
 
     // Make data into objects
-    let start_date = new Date(data[startend_step.data_entry].selected[0]);
-    let end_date = new Date(data[startend_step.data_entry].selected[1]);
+    let [start_date, end_date] = data[startend_step.data_entry].selected.sort((a, b) => a - b).map(d => new Date(d));
     let breaks = data[breaks_step.data_entry].selected.map(e => new Date(e));
     let cycle = data[cycle_step.data_entry];
 
@@ -226,6 +225,8 @@ function encode_data(start_date, end_date, breaks, cycle) {
     // Encode breaks into string of charaters
     let encode_break = (b, l) => `${encode_ascii(Math.round((b - l)/86400000))}`;
     
+    // Sort Dates
+    breaks.sort((a, b) => a - b)
 
     let result = '';
     let start_date_string = encode_date(start_date);
