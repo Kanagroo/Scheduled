@@ -105,6 +105,10 @@ function decode_data(data) {
 function find_cycle_day(data, date) {
     cur_date = new Date(data.sd);
     date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+    if (date.getTime() < data.sd || date.getTime() > data.ed)
+        return -1;
+
     if (data.breaks.map(e=>e.getTime()).includes(date.getTime()) || date.getDay() == 0 || date.getDay() == 6)
         return -1;
     
