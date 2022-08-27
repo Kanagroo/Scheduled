@@ -91,7 +91,7 @@ function decode_data(data) {
 
     let cycle = {'days':[]};
     
-    cycle.days = segments[3]
+    cycle.days = segments.slice(3).reduce((p, c) => p+c) 
         .split('-')
         .map(e => e.split(')'))
         .map(e => e.map(r => r.split('('))
